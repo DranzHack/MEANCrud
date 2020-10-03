@@ -1,0 +1,41 @@
+<div class="row">
+  <br>
+  <div class="my-2 text-left">
+  <button class="btn btn-rounded btn-primary" [routerLink] = "['/empleado/form']">Crear empleado</button>
+  </div>
+    <div class="col m12">
+      <table class="striped">
+          <thead>
+            <tr>
+                <th>nombre</th>
+                <th>puesto</th>
+                <th>lugar</th>
+                <th>salario</th>
+                <th>operaciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+                 <tr *ngFor="let empleadoArr of empleados">
+                   <td>{{empleadoArr.nombre}}</td>
+                   <td>{{empleadoArr.puesto}}</td>
+                   <td>{{empleadoArr.lugar}}</td>
+                   <td>{{empleadoArr.salario}}</td>
+                   <td>
+                    <button class="btn waves-effect waves-light btn-small blue" type="button" name="editar" [routerLink]="['/empleado/form',empleadoArr._id]">
+                      <i class="material-icons center">edit</i>
+                    </button>
+
+                    <button class="btn waves-effect waves-light btn-small red" type="button" name="eliminar" (click)="deleteEmpleado(empleadoArr)">
+                      <i class="material-icons center">delete</i>
+                    </button>
+                   </td>
+                  </tr>
+          </tbody>
+        </table>
+  </div>
+
+    
+</div>
+
+
